@@ -25,11 +25,13 @@ class HomeScreen extends ConsumerWidget {
               await ref.read(functionsRepositoryProvider).deleteAllUserJobs();
             } catch (e) {
               if (e is FirebaseFunctionsException) {
-                showAlertDialog(
-                  context: context,
-                  title: 'An error occurred',
-                  content: e.message,
-                );
+                if (context.mounted) {
+                  showAlertDialog(
+                    context: context,
+                    title: 'An error occurred',
+                    content: e.message,
+                  );
+                }
               }
             }
           },
