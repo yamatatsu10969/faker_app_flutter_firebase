@@ -39,7 +39,7 @@ jobs:
         # run: flutter analyze --no-fatal-infos --verbose
         run: flutter analyze --no-fatal-infos > flutter_analyze_report.txt
       - name: Format Analyze
-        run: dart format --dry-run --set-exit-if-changed .
+        run: dart format --set-exit-if-changed .
       - name: setup ruby
         uses: ruby/setup-ruby@v1
         with:
