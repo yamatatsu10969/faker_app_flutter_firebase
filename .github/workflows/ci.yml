@@ -33,7 +33,8 @@ jobs:
       - name: Install flutter dependencies
         run: flutter pub get
       - name: Analyze (no fatal infos)
-        run: flutter analyze --no-fatal-infos > flutter_analyze_report.txt
+        run: flutter analyze --no-fatal-infos --verbose
+        # run: flutter analyze --no-fatal-infos > flutter_analyze_report.txt
       - name: Format Analyze
         run: flutter format --dry-run --set-exit-if-changed .
       - name: setup ruby
