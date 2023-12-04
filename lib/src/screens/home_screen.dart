@@ -50,6 +50,7 @@ class HomeScreen extends ConsumerWidget {
           final title = faker.job.title();
           final company = faker.company.name();
           ref.read(firestoreRepositoryProvider).addJob(
+                // HomeScreen is only accessible to signed in users
                 user!.uid,
                 title,
                 company,
