@@ -20,7 +20,7 @@ Future<bool?> showAlertDialog({
       barrierDismissible: cancelActionText != null,
       builder: (context) => AlertDialog(
         title: Text(title),
-        content: content != null ? Text(content) : null,
+        content: content == null ? null : Text(content),
         actions: <Widget>[
           if (cancelActionText != null)
             TextButton(
@@ -41,7 +41,7 @@ Future<bool?> showAlertDialog({
     barrierDismissible: cancelActionText != null,
     builder: (context) => CupertinoAlertDialog(
       title: Text(title),
-      content: content != null ? Text(content) : null,
+      content: content == null ? null : Text(content),
       actions: <Widget>[
         if (cancelActionText != null)
           CupertinoDialogAction(
