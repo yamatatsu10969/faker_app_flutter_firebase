@@ -68,8 +68,11 @@ class JobsListView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final firestoreRepository = ref.watch(firestoreRepositoryProvider);
     final user = ref.watch(firebaseAuthProvider).currentUser;
+    if (user == null) {
+      return const Center(child: Text('You must be signed in'));
+    }
     return FirestoreListView<Job>(
-      query: firestoreRepository.jobsQuery(user!.uid),
+      query: firestoreRepository.jobsQuery(user.uid),
       pageSize: 20,
       errorBuilder: (context, error, stackTrace) => Center(
         child: Text(error.toString()),
