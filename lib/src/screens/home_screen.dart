@@ -10,6 +10,7 @@ import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -92,7 +93,7 @@ class JobsListView extends ConsumerWidget {
             title: Text(job.title),
             subtitle: Text(job.company),
             trailing: job.createdAt != null
-                ? Text(job.createdAt.toString(),
+                ? Text(DateFormat('yyyy-MM-dd kk:mm').format(job.createdAt!),
                     style: Theme.of(context).textTheme.bodySmall)
                 : null,
             onTap: () {
